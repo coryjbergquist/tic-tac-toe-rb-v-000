@@ -4,9 +4,9 @@ WIN_COMBINATIONS = [[0,1,2],
   [3,4,5],[6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
 
 def display_board(board)
-  puts " #{board[0]} | #{board[1]} | #{board[2]} 
+  puts " #{board[0]} | #{board[1]} | #{board[2]}
 -----------
- #{board[3]} | #{board[4]} | #{board[5]} 
+ #{board[3]} | #{board[4]} | #{board[5]}
 -----------
  #{board[6]} | #{board[7]} | #{board[8]} "
 end
@@ -24,9 +24,9 @@ def position_taken?(board, index)
 end
 
 def valid_move?(board, index)
-    index.between?(0, 8) && !position_taken?(board, index) 
+    index.between?(0, 8) && !position_taken?(board, index)
  end
- 
+
  def turn(board)
   puts "Please enter 1-9:"
  user_input = gets.strip
@@ -36,7 +36,7 @@ def valid_move?(board, index)
    #binding.pry
    move(board, index, value)
  display_board(board)
- else 
+ else
    turn(board)
   end
 end
@@ -46,7 +46,7 @@ def turn_count(board)
 end
 
 def current_player(board)
-  if 
+  if
     turn_count(board) % 2 == 0
 "X"
 else
@@ -78,7 +78,7 @@ def full?(board)
     !board.any? {|x|
       x == " "}
   end
-  
+
 def draw?(board)
     if
       won?(board)
@@ -99,7 +99,7 @@ end
 end
 
 def play(board)
-  
+
   while !over?(board)
 turn(board)
 end
@@ -107,7 +107,7 @@ if winner(board) == "X"
   puts "Congratulations X!"
   elsif winner(board) == "O"
   puts "Congratulations O!"
-else 
+else
   puts "Cat's Game!"
 end
 end
